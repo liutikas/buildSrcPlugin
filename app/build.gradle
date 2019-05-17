@@ -21,3 +21,7 @@ dependencies {
     androidTestImplementation ANDROIDX_TEST_RUNNER
     androidTestImplementation ANDROIDX_TEST_ESPRESSO
 }
+
+myConfig {
+    minSdkVersion.set(24)
+}
