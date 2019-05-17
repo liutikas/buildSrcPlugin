@@ -16,12 +16,29 @@ class MyPlugin : Plugin<Project> {
                 is AppPlugin -> {
                     project.extensions.getByType(AppExtension::class.java).apply {
                         setCommonAndroidOptions()
+                        defaultConfig.apply {
+                            versionCode = 1
+                            versionName = "1.0"
+                        }
+                        buildTypes.getByName("release").apply {
+                            isMinifyEnabled = false
+                            proguardFiles(
+                                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                                    "proguard-rules.pro"
+                            )
+                        }
                     }
                 }
             }
         }
     }
 
-    private fun BaseExtension.setCommonAndroidOptions() {
+    private fun TestedExtension.setCommonAndroidOptions() {
+        compileSdkVersion(28)
+        defaultConfig.apply {
+            minSdkVersion(24)
+            targetSdkVersion(28)
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
     }
 }
