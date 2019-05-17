@@ -1,0 +1,4 @@
+rootProject.name = 'buildSrcPlugin'
+
+include ':app'
+include ':library1'
