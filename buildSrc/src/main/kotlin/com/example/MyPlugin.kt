@@ -1,6 +1,7 @@
 package com.example
 
 import com.android.build.gradle.*
+import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -54,6 +55,17 @@ class MyPlugin : Plugin<Project> {
             minSdkVersion(24)
             targetSdkVersion(28)
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
+
+        compileOptions.apply {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
+        }
+
+        lintOptions.apply {
+            xmlReport = false
+            htmlReport = false
+            textReport = true
         }
     }
 }
