@@ -2,3 +2,4 @@ rootProject.name = 'buildSrcPlugin'
 
 include ':app'
 include ':library1'
+include ':library2'
